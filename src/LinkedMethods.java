@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class LinkedMethods<E> implements List<E> {
+public class LinkedMethods<E> implements List<E>, Deque<E> {
     int count = 0;
     Node<E> first;
     Node<E> last;
@@ -62,6 +62,11 @@ public class LinkedMethods<E> implements List<E> {
         };
     }
 
+    @Override
+    public Iterator<E> descendingIterator() {
+        return null;
+    }
+
     /**
      * this method returns an array containing all the elements in this list
      *
@@ -82,6 +87,104 @@ public class LinkedMethods<E> implements List<E> {
     }
 
     /**
+     * this method adding to the beginning
+     * @param e the element to add
+     */
+    @Override
+    public void addFirst(E e) {
+        Node<E> f = first;
+        Node<E> node = new Node<>(null, e, first);
+        first = node;
+        if (f == null) {
+            last = node;
+        } else
+            f.setPrev(node);
+        count++;
+    }
+
+    /**
+     * this method adding to the end
+     * @param e the element to add
+     */
+    @Override
+    public void addLast(E e) {
+        add(e);
+    }
+
+    /**
+     * this method adding to the beginning
+     * @param e the element to add
+     * @return true if o is removed, else - false and element
+     */
+    @Override
+    public boolean offerFirst(E e) {
+        addFirst(e);
+        return true;
+    }
+
+    /**
+     * this method adding to the end
+     * @param e the element to add
+     * @return true if o is removed, else - false and element
+     */
+    @Override
+    public boolean offerLast(E e) {
+        add(e);
+        return true;
+    }
+
+    @Override
+    public E removeFirst() {
+
+        return null;
+    }
+
+    @Override
+    public E removeLast() {
+        return null;
+    }
+
+    @Override
+    public E pollFirst() {
+        return null;
+    }
+
+    @Override
+    public E pollLast() {
+        return null;
+    }
+
+    @Override
+    public E getFirst() {
+        return null;
+    }
+
+    @Override
+    public E getLast() {
+        return null;
+    }
+
+    @Override
+    public E peekFirst() {
+        return null;
+    }
+
+    @Override
+    public E peekLast() {
+        return null;
+    }
+
+    @Override
+    public boolean removeFirstOccurrence(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean removeLastOccurrence(Object o) {
+        return false;
+    }
+
+    /**
      * this method adds the specified element to the end of this list
      *
      * @param student - element to add
@@ -99,6 +202,31 @@ public class LinkedMethods<E> implements List<E> {
         }
         count++;
         return true;
+    }
+
+    @Override
+    public boolean offer(E e) {
+        return false;
+    }
+
+    @Override
+    public E remove() {
+        return null;
+    }
+
+    @Override
+    public E poll() {
+        return null;
+    }
+
+    @Override
+    public E element() {
+        return null;
+    }
+
+    @Override
+    public E peek() {
+        return null;
     }
 
     /**
@@ -145,6 +273,16 @@ public class LinkedMethods<E> implements List<E> {
             add(o);
         }
         return false;
+    }
+
+    @Override
+    public void push(E e) {
+
+    }
+
+    @Override
+    public E pop() {
+        return null;
     }
 
     /**

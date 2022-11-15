@@ -40,13 +40,13 @@ public class Main {
                 System.out.println(linkedList.isEmpty());
             } else if (number == 3) {
                 containsStudent();
-            } else if (number == 4) {
+            } else if (number == 1231231) {
                 System.out.println(linkedList.iterator().hasNext());
                 System.out.println(linkedList.iterator().next());
             } else if (number == 5) {
                 System.out.println(Arrays.toString(linkedList.toArray()));
             } else if (number == 6) {
-
+                System.out.println(linkedList.getLast());
             } else if (number == 7) {
                 addStudent();
             } else if (number == 8) {
@@ -95,7 +95,17 @@ public class Main {
         System.out.println("Введите возраст студента");
         int age = scanner.nextInt();
         Student student = new Student(name, age);
-        System.out.println(linkedList.add(student));
+        System.out.println("Выбериет добавление: " +
+                "1) linked\n" +
+                "2) deque");
+        int number = scanner.nextInt();
+        if (number == 1) {
+            System.out.println(linkedList.add(student));
+        }else if(number == 2){
+            linkedList.addFirst(student);
+        }else {
+            System.out.println("Такого варианта нет");
+        }
     }
 
     public static void removeStudent() {
@@ -190,5 +200,6 @@ public class Main {
         int number2 = scanner1.nextInt();
         linkedList.addAll(number1, link1);
         linkedList.addAll(number2, link2);
+
     }
 }
